@@ -1,0 +1,50 @@
+# Default values for backstage.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: upbound/developer-platform 
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "0.0.1"
+
+nameOverride: ""
+fullnameOverride: ""
+
+podAnnotations: {}
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+
+resources: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+## Extra environment variables that will be pass onto deployment pods
+##
+## env:
+##   AWS_ROLE_ARN: arn:aws:iam::123456789000:role/iam-role-name-here
+##   AWS_WEB_IDENTITY_TOKEN_FILE: /var/run/secrets/eks.amazonaws.com/serviceaccount/token
+##   AWS_REGION: us-east-1
+# env: {}
+
+# extraLabels -- Any extra labels to apply to all resources
+extraLabels: {}
+
+postgres:
+  host: "127.0.0.1"
+  port: "5432"
+  user: "postgres"
+  # password: "postgres"
+  # passwordSecretName: "postgres"
+  # passwordSecretKeyRef: "postgres-password"

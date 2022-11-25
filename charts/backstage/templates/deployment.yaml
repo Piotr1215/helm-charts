@@ -55,14 +55,6 @@ spec:
               protocol: TCP
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          readinessProbe:
-            httpGet:
-              port: http
-              path: /healthcheck
-          livenessProbe:
-            httpGet:
-              port: http
-              path: /healthcheck
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}
